@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page avec Cadre en Portrait et Bootstrap</title>
+    <!-- Inclusion de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Style du cadre principal */
+        .box {
+            width: 480px;
+            height: 800px;
+            border: 0px solid #333;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            margin: 20px auto;
+            background-color: #00000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="container">
+        <!-- Conteneur avec une date en titre et 2 zones de contenu -->
+        <div class="date-container mb-4 p-3 border rounded bg-white" th:each="dateableEntry: ${dateable}">
+            <h5 class="date-title text-primary">Date: <span th:text="${#temporals.format(dateableEntry.date, 'ccc dd LLL yyyy')}"></span></h5>
+            <div class="row">
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <div class="content-box p-3 border rounded bg-light">
+                        <div th:each="agendaEntry : ${dateableEntry.agenda}">
+                            <span th:text="${agendaEntry.evenement}"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="content-box p-3 border rounded bg-light">
+                        <div th:each="agendaEntry : ${dateableEntry.repas}">
+                            <span th:text="${agendaEntry.description}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Inclusion de Bootstrap JavaScript pour la compatibilité si besoin -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

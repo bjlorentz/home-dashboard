@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Page avec Météo, Repas et Événements</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        .box {
+            width: 800px;
+            height: 480px;
+            border: 1px solid #ccc;
+            padding: 0px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .upper-half, .lower-half {
+            display: flex;
+            height: 50%;
+        }
+        .weather, .meals, .events {
+            padding: 10px;
+            border: 1px solid green;
+        }
+        .weather {
+            width: 33.33%;
+        }
+        .meals {
+            width: 66.67%;
+        }
+        .events {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .event {
+            width: flex;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid blue;
+        }
+
+.card {
+  --border-radius: 0.75rem;
+  --primary-color: #7257fa;
+  --secondary-color: #3c3852;
+  width: flex;
+  font-family: "Arial";
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+<!--  background: #f1f1f3;-->
+  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 3%);
+  position: relative;
+}
+
+.card > * + * {
+  margin-top: 1.1em;
+}
+
+.card .card__content {
+  color: var(--secondary-color);
+  padding-top: 2rem;
+  font-size: 0.86rem;
+}
+
+.card .card__title {
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="box">
+        <div class="upper-half">
+            <div class="weather card">
+                <div class="card-body">
+                    <div class="card__title">Météo à Lyon</div>
+                    <div class="card__content">
+                        <p class="card-text">Température minimale : 15°C</p>
+                        <p class="card-text">Température maximale : 25°C</p>
+                    </div>
+                </div>
+            </div>
+            <div class="meals card">
+                <div class="card-body">
+                    <div class="card__title">
+                        <span>Liste de repas</span>
+                    </div>
+                    <div class="card__content">
+                        <ul class="list-group list-group-flush"
+                            th:each="meal : ${repas}">
+                            <li class="list-group-item">
+                                <!-- TODO modifier le format de la date -->
+                                <span th:text="${meal.date}"></span>
+                                <span th:text="${meal.description}"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lower-half">
+            <div class="events" th:each="datedEntry : ${agendas}">
+                <div class="event card">
+                    <div class="card-body">
+                        <span class="card__title" th:text="${datedEntry.date}"></span>
+                        <span th:each="entry : ${datedEntry.agendas}">
+                            <div class="card__content">
+                                <span th:text="${entry.evenement}"></span>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
