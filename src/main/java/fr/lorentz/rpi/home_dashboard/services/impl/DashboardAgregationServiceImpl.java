@@ -1,14 +1,17 @@
 package fr.lorentz.rpi.home_dashboard.services.impl;
 
-import fr.lorentz.rpi.home_dashboard.model.DashboardModel;
-import fr.lorentz.rpi.home_dashboard.model.DateableStructure;
-import fr.lorentz.rpi.home_dashboard.services.*;
-import org.apache.commons.lang3.tuple.Pair;
-import org.apache.commons.lang3.tuple.Triple;
+import fr.lorentz.rpi.home_dashboard.model.*;
+import fr.lorentz.rpi.home_dashboard.services.DashboardService;
+import fr.lorentz.rpi.home_dashboard.services.MeetingService;
+import fr.lorentz.rpi.home_dashboard.services.MeteoService;
+import fr.lorentz.rpi.home_dashboard.services.RepasService;
+import lombok.Builder;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.stream.IntStream;
 
 @Service
@@ -30,19 +33,15 @@ public class DashboardAgregationServiceImpl implements DashboardService {
     @Override
     public DashboardModel generate() {
         return DashboardModel.builder()
-                .meteo(meteoService.retrieve(LocalDate.now()))
                 .dateableStructure(IntStream
                         .range(0, nextDaysCount)
                         .mapToObj(LocalDate.now()::plusDays)
-                        .map(date -> Triple.of(
-                                date,
-                                repasService.atDay(date),
-                                meetingService.atDay(date)))
-                        .map(pair -> DateableStructure
+                        .map(date -> DateableStructure
                                 .builder()
-                                .date(pair.getLeft())
-                                .repas(pair.getMiddle())
-                                .agenda(pair.getRight())
+                                .date(date)
+                                .repas(repasService.atDay(date))
+                                .agenda(meetingService.atDay(date))
+                                .meteo(meteoService.retrieve(date))
                                 .build())
                         .toList())
                 .build();

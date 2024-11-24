@@ -14,4 +14,5 @@ public class DateableStructure {
     private LocalDate date;
     private Collection<Agenda> agenda;
     private Collection<Repas> repas;
+    private Meteo meteo;
 }

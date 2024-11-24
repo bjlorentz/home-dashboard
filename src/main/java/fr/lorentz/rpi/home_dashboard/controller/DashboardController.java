@@ -24,7 +24,6 @@ public class DashboardController {
     public String getDashboard(Model model) {
         DashboardModel generate = dashboardService.generate();
         log.info("Structure produced : {}", generate);
-        model.addAttribute("meteo", generate.getMeteo());
         model.addAttribute("dateable", generate.getDateableStructure());
         return "dashboard_2.html";
     }

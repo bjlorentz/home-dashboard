@@ -1,9 +1,9 @@
 package fr.lorentz.rpi.home_dashboard.services;
 
-import fr.lorentz.rpi.home_dashboard.model.MeteoModel;
+import fr.lorentz.rpi.home_dashboard.model.Meteo;
 
 import java.time.LocalDate;
 
 public interface MeteoService {
-    MeteoModel retrieve(LocalDate date);
+    Meteo retrieve(LocalDate date);
 }

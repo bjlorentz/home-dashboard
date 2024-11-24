@@ -10,6 +10,5 @@ import java.util.Collection;
 @Getter
 @ToString
 public class DashboardModel {
-    private MeteoModel meteo;
     private Collection<DateableStructure> dateableStructure;
 }
