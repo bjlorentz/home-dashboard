@@ -5,51 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page avec Cadre en Portrait et Bootstrap</title>
     <!-- Inclusion de Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://unpkg.com/bs-brain@2.0.4/tutorials/timelines/timeline-1/assets/css/timeline-1.css">
     <style>
         /* Style du cadre principal */
         .box {
             width: 480px;
             height: 800px;
-            border: 0px solid #333;
-            padding: 10px;
+            border: 1px solid #333;
+            padding: 2em;
             box-sizing: border-box;
             overflow-y: auto;
             margin: 20px auto;
             background-color: #00000;
         }
+        .bsb-timeline-1 {
+            --bsb-tl-circle-color: #333333;
+            --bsb-tl-color: #AAA;
+        }
     </style>
 </head>
 <body>
 
-<div class="box">
-    <div class="container">
-        <!-- Conteneur avec une date en titre et 2 zones de contenu -->
-        <div class="date-container mb-4 p-3 border rounded bg-white" th:each="dateableEntry: ${dateable}">
-            <h5 class="date-title text-primary">Date: <span th:text="${#temporals.format(dateableEntry.date, 'ccc dd LLL yyyy')}"></span></h5>
-            <div class="row">
-                <div class="col-12 col-md-6 mb-3 mb-md-0">
-                    <div class="content-box p-3 border rounded bg-light">
-                        <div th:each="agendaEntry : ${dateableEntry.agenda}">
-                            <span th:text="${agendaEntry.evenement}"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="content-box p-3 border rounded bg-light">
-                        <div th:each="agendaEntry : ${dateableEntry.repas}">
-                            <span th:text="${agendaEntry.description}"></span>
-                        </div>
-                    </div>
+<section class="bsb-timeline-1 py-5 py-xl-8">
+    <div class="box">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <ul class="timeline">
+                        <li class="timeline-item" th:each="dateableEntry: ${dateable}">
+                            <div class="timeline-body">
+                                <div class="timeline-content">
+                                    <div class="card border-0">
+                                        <div class="card-body p-0" >
+                                            <h4 class="card-subtitle text-secondary mb-1"><span
+                                                    th:text="${#temporals.format(dateableEntry.date, 'ccc dd LLL yyyy')}"></span>
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                                                    <div class="content-box p-3 rounded">
+                                                        <div th:each="agendaEntry : ${dateableEntry.agenda}">
+                                                            <p class="card-text m-0"><span th:text="${agendaEntry.evenement}"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="content-box p-3 just">
+                                                        <div th:each="agendaEntry : ${dateableEntry.repas}">
+                                                            <p class="card-text m-0"><span th:text="${agendaEntry.description}"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <!-- Inclusion de Bootstrap JavaScript pour la compatibilité si besoin -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
