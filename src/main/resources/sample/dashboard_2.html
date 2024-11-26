@@ -29,6 +29,9 @@
         .text-secondary {
             --bs-secondary-rgb: #000
         }
+        .weather-icon {
+            font-size:1em;
+        }
     </style>
 </head>
 <body>
@@ -43,67 +46,19 @@
                             <div class="timeline-body">
                                 <div class="timeline-content">
                                     <div class="card border-0">
-                                        <div class="card-body p-0" >
-                                            <h4 class="card-subtitle text-secondary mb-1">
-                                                <span>dimanche 24 nov. 2024</span>
-                                            </h4>
-                                            <h6><i class="bi bi-sun"></i>&nbsp;<span>Min: 0 - Max : 10</span></h6>
-                                            <div class="row">
-                                                <div class="col-12 col-md-6 mb-3 mb-md-0">
-                                                    <div class="content-box p-3 rounded">
-
-                                                    </div>
+                                        <div class="card-body p-0">
+                                            <div class="row align-items-center">
+                                                <div class="col-6 h5">
+                                                    <span>mar. 26 nov. 2024</span>
                                                 </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="content-box p-3 just">
-                                                        <div>
-                                                            <p class="card-text m-0"><span>Pâté croute salade</span></p>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-6 h6">
+                                                    <span>
+                                                        <i class="bi bi-sun weather-icon"></i>
+                                                        <i class="bi bi-thermometer" style="color:blue"></i><span>:0.0</span>
+                                                        <i class="bi bi-thermometer-high" style="color:red"></i><span>:10.1</span>
+                                                    </span>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-item">
-                            <div class="timeline-body">
-                                <div class="timeline-content">
-                                    <div class="card border-0">
-                                        <div class="card-body p-0" >
-                                            <h4 class="card-subtitle text-secondary mb-1">
-                                                <span>lundi 25 nov. 2024</span>
-                                            </h4>
-                                            <h6><i class="bi bi-wind"></i>&nbsp;<span>Min: 0 - Max : 10</span></h6>
-                                            <div class="row">
-                                                <div class="col-12 col-md-6 mb-3 mb-md-0">
-                                                    <div class="content-box p-3 rounded">
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="content-box p-3 just">
-                                                        <div>
-                                                            <p class="card-text m-0"><span>Midi : Risotto Poulet</span></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-item">
-                            <div class="timeline-body">
-                                <div class="timeline-content">
-                                    <div class="card border-0">
-                                        <div class="card-body p-0" >
-                                            <h4 class="card-subtitle text-secondary mb-1">
-                                                <span>mardi 26 nov. 2024</span>
-                                            </h4>
-                                            <h6><i class="bi bi-cloud-rain"></i>&nbsp;<span>Min: 0 - Max : 10</span></h6>
                                             <div class="row">
                                                 <div class="col-12 col-md-6 mb-3 mb-md-0">
                                                     <div class="content-box p-3 rounded">
@@ -115,6 +70,12 @@
                                                         <div>
                                                             <p class="card-text m-0"><span> 	Midi : Risotto Poulet</span></p>
                                                         </div>
+                                                        <div>
+                                                            <p class="card-text m-0"><span>Poulet</span></p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="card-text m-0"><span>Ravioli</span></p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -127,11 +88,19 @@
                             <div class="timeline-body">
                                 <div class="timeline-content">
                                     <div class="card border-0">
-                                        <div class="card-body p-0" >
-                                            <h4 class="card-subtitle text-secondary mb-1">
-                                                <span>mercredi 27 nov. 2024</span>
-                                            </h4>
-                                            <h6><i class="bi bi-cloud"></i>&nbsp;<span>Min: 0 - Max : 10</span></h6>
+                                        <div class="card-body p-0">
+                                            <div class="row align-items-center">
+                                                <div class="col-7 h4">
+                                                    <span>mer. 27 nov. 2024</span>
+                                                </div>
+                                                <div class="col-5 h6">
+                                                    <span>
+                                                        <i class="bi bi-wind weather-icon"></i>
+                                                        <i class="bi bi-thermometer" style="color:blue"></i><span>:3.3</span>
+                                                        <i class="bi bi-thermometer-high" style="color:red"></i><span>:12.1</span>
+                                                    </span>
+                                                </div>
+                                            </div>
                                             <div class="row">
                                                 <div class="col-12 col-md-6 mb-3 mb-md-0">
                                                     <div class="content-box p-3 rounded">
@@ -153,16 +122,102 @@
                             <div class="timeline-body">
                                 <div class="timeline-content">
                                     <div class="card border-0">
-                                        <div class="card-body p-0" >
-                                            <h4 class="card-subtitle text-secondary mb-1">
-                                                <span>jeudi 28 nov. 2024</span>
-                                            </h4>
-                                            <h6><i class="bi bi-snow"></i>&nbsp;<span>Min: 0 - Max : 10</span></h6>
+                                        <div class="card-body p-0">
+                                            <div class="row align-items-center">
+                                                <div class="col-7 h4">
+                                                    <span>jeu. 28 nov. 2024</span>
+                                                </div>
+                                                <div class="col-5 h6">
+                                                    <span>
+                                                        <i class="bi bi-cloud weather-icon"></i>
+                                                        <i class="bi bi-thermometer" style="color:blue"></i><span>:-4.3</span>
+                                                        <i class="bi bi-thermometer-high" style="color:red"></i><span>:6.2</span>
+                                                    </span>
+                                                </div>
+                                            </div>
                                             <div class="row">
                                                 <div class="col-12 col-md-6 mb-3 mb-md-0">
                                                     <div class="content-box p-3 rounded">
                                                         <div>
                                                             <p class="card-text m-0"><span>8:20 - Rdv Médecin</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="content-box p-3 just">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-body">
+                                <div class="timeline-content">
+                                    <div class="card border-0">
+                                        <div class="card-body p-0">
+                                            <div class="row align-items-center">
+                                                <div class="col-7 h4">
+                                                    <span>ven. 29 nov. 2024</span>
+                                                </div>
+                                                <div class="col-5 h6">
+                                                    <span>
+                                                        <i class="bi bi-cloud-rain weather-icon"></i>
+                                                        <i class="bi bi-thermometer" style="color:blue"></i><span>:3.2</span>
+                                                        <i class="bi bi-thermometer-high" style="color:red"></i><span>:8.7</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                                                    <div class="content-box p-3 rounded">
+                                                        <div>
+                                                            <p class="card-text m-0"><span>Black Friday</span></p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="card-text m-0"><span>Journée Off</span></p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="card-text m-0"><span>@Bourgoin</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="content-box p-3 just">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-body">
+                                <div class="timeline-content">
+                                    <div class="card border-0">
+                                        <div class="card-body p-0">
+                                            <div class="row align-items-center">
+                                                <div class="col-7 h4">
+                                                    <span>sam. 30 nov. 2024</span>
+                                                </div>
+                                                <div class="col-5 h6">
+                                                    <span>
+                                                        <i class="bi bi-snow weather-icon"></i>
+                                                        <i class="bi bi-thermometer" style="color:blue"></i><span>:-4.3</span>
+                                                        <i class="bi bi-thermometer-high" style="color:red"></i><span>:-0.4</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                                                    <div class="content-box p-3 rounded">
+                                                        <div>
+                                                            <p class="card-text m-0"><span>@Bourgoin</span></p>
                                                         </div>
                                                     </div>
                                                 </div>

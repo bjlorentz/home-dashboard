@@ -17,7 +17,7 @@
             border: 1px solid #333;
             padding: 2em;
             box-sizing: border-box;
-            overflow-y: auto;
+            overflow-y: hidden;
             margin: 20px auto;
             background-color: #00000;
             font-size:smaller;
@@ -47,13 +47,18 @@
                                 <div class="timeline-content">
                                     <div class="card border-0">
                                         <div class="card-body p-0">
-                                            <h4 class="card-subtitle text-secondary mb-1"><span
-                                                    th:text="${#temporals.format(dateableEntry.date, 'ccc dd LLL yyyy')}"></span>
-                                            </h4>
-                                            <h6>
-                                                <i th:class="'bi ' + ${dateableEntry.meteo.weather} + ' weather-icon'"></i>&nbsp;
-                                                <span th:text="'Min: ' + ${dateableEntry.meteo.min} + ' - Max: ' + ${dateableEntry.meteo.max}"></span>
-                                            </h6>
+                                            <div class="row align-items-center">
+                                                <div class="col-6 h5">
+                                                    <span th:text="${#temporals.format(dateableEntry.date, 'ccc dd LLL')}"></span>
+                                                </div>
+                                                <div class="col-6 h6">
+                                                    <span>
+                                                        <i th:class="'bi ' + ${dateableEntry.meteo.weather} + ' weather-icon'"></i>
+                                                        <i class="bi bi-thermometer" style="color:blue"></i><span th:text="':' + ${dateableEntry.meteo.min}"></span>
+                                                        <i class="bi bi-thermometer-high" style="color:red"></i><span th:text="':' + ${dateableEntry.meteo.max}"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
                                             <div class="row">
                                                 <div class="col-12 col-md-6 mb-3 mb-md-0">
                                                     <div class="content-box p-3 rounded">
